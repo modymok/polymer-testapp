@@ -12,9 +12,10 @@ body {
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
-  background-color: #eee;
+  background-color: #00477c;
   border-radius: 6px;
   padding: 60px;
+    color: #fff;
 }
 
 .hero-unit h1 {
