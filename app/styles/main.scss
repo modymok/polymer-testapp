@@ -1,12 +1,13 @@
 @import "bourbon";
-
+$blackColor:#ff0000;
+$name: unit;
 body {
   background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
+  font-family: $helvetica;
+  color: $blackColor;
 }
 
-.hero-unit {
+.hero-#{$name} {
   margin: 50px auto 0 auto;
   width: 300px;
   font-size: 18px;
@@ -15,20 +16,75 @@ body {
   background-color: #eee;
   border-radius: 6px;
   padding: 60px;
-}
-
-.hero-unit h1 {
+    h1 {
   font-size: 60px;
   line-height: 1;
   letter-spacing: -1px;
+}
 }
 
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
-  color: #000;
+  color: $blackColor;
   padding: 0.2em 0;
   
     
 }
 
+
+// MIXIN Example
+@mixin assemble($side, $bg: #fff, $pad: 10px) {
+  background: $bg;
+  border-#{$side}: 1px solid #ccc;
+  padding: $pad;
+}
+
+.factory {
+  @include assemble(left);
+}
+.highrise {
+  @include assemble($side: right, $bg: #797979, $pad: 20px);
+}
+
+@mixin modal($shadow...) {
+  box-shadow: $shadow;
+  //border: 1px solid #ccc;
+}
+
+.modal {
+  @include modal(inset 0 0 2px #000, 0 2px 2px #000);
+}
+
+//Extends 
+
+%container {
+  background: blue;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+.blueprint {
+  @extend %container;
+}
+.surveyor {
+  @extend %container;
+  color: #fff;
+}
+
+.factory {
+  background: #fff;
+  .blueprint {
+    margin-bottom: 20px;
+  }
+}
+
+$i: 1;
+
+@while $i <= 7 {
+  .row-#{$i} {
+    background: #ccc;
+    height: $i * 10px;
+  }
+  $i: $i + 2;
+}
