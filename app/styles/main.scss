@@ -1,4 +1,5 @@
 @import "bourbon";
+
 $blackColor:#ff0000;
 $name: unit;
 body {
@@ -28,9 +29,8 @@ body {
   background: #ccc;
   color: $blackColor;
   padding: 0.2em 0;
-  
-    
 }
+
 
 
 // MIXIN Example
@@ -50,6 +50,7 @@ body {
 @mixin modal($shadow...) {
   box-shadow: $shadow;
   //border: 1px solid #ccc;
+    
 }
 
 .modal {
